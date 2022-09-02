@@ -1,0 +1,49 @@
+{% extends "base_page.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block meta_description %}{{page.teaser|striptags}}{% endblock %}
+
+{%block title %}
+{{page.title}}
+{%endblock%}
+
+{% block main_span_size %}
+{% if not page.extra_info and not page.extra_block and not page.featured_image %}
+  is-full
+{% else %}
+{% if page.featured_image %}
+is-two-thirds
+{% else %}
+is-three-quarters
+{% endif %}
+{% endif %}
+{% endblock %}
+
+{% block main %}
+
+<!-- Stream field rendering -->
+{% include 'home/partials/stream_blocks.html' with blocks=self.content %}
+
+{% endblock %}
+
+{% block right_panel %}
+
+{% if  page.extra_info or page.featured_image %}
+<div class="column">
+
+  {% if page.featured_image %}
+  {% image page.featured_image width-1000 as tmp_photo %}
+  <figure class="image">
+    <img {{ tmp_photo.attrs }} />
+    <figcaption class='featured'>{{tmp_photo.alt}}</figcaption>
+  </figure>
+  {% endif %}
+
+
+  <!-- Stream field rendering -->
+  {% include 'home/partials/stream_blocks.html' with blocks=self.extra_info %}
+
+
+</div>
+{% endif %}
+{%endblock%}

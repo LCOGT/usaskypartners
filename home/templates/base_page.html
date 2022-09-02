@@ -1,0 +1,173 @@
+{% load static wagtailcore_tags wagtailimages_tags wagtailuserbar i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        {% block title_head %}
+            {{ self.title }}
+        {% endblock %}
+        {% block title_suffix %}
+            | USA Sky Partners
+        {% endblock %}
+    </title>
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block meta_description %}{% endblock %}">
+
+    <meta property="og:type" content="website" />
+    {% block unfurl %}
+    {% if page %}
+    {% wagtail_site as current_site %}
+    <meta property="og:url" content="https://{{ current_site.hostname}}{% pageurl page %}" />
+    <meta property="og:title" content="{{page.title}}" />
+    {% if page.teaser %}
+    <meta property="og:description" content="{{page.teaser|striptags}}" />
+    {% else %}
+    <meta property="og:description" content="{{page.content|striptags|truncatechars:"200"}}" />
+    {% endif%}
+    {% if page.featured_image %}
+    {% image_url page.featured_image "width-400" as image_tmp_url %}
+    <meta property="og:image" content="https://{{ current_site.hostname}}{{image_tmp_url}}"/>
+    <meta name="twitter:card" content="summary_large_image" />
+    {% else %}
+    <meta name="twitter:card" content="summary" />
+    {% endif %}
+    <meta name="twitter:site" content="@LCO_global" />
+    {% if page.display_date %}
+    <meta name="twitter:label1" value="Published" />
+    <meta name="twitter:data1" value="{{page.display_date|date:"M j, Y"}}" />
+    {% endif %}
+    {% endif %}
+    {% endblock %}
+
+    <link rel="shortcut icon" href="https://cdn.lco.global/mainstyle/img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <script defer src="https://pro.fontawesome.com/releases/v5.13.0/js/all.js" integrity="sha384-Z0e6PSokCQP510gixgZGPs+obVv8eogS/eS2+/7lLSMOfmLnWBgPQppPispQXGUM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js" integrity="sha512-ju6u+4bPX50JQmgU97YOGAXmRMrD9as4LE05PdC3qycsGQmjGlfm041azyB1VfCXpkpt1i9gqXCT6XuxhBJtKg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@700&family=Libre+Franklin:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href='https://cdn.lco.global/mainstyle/css/lco-2.0.3.css'/>
+    <link rel="stylesheet" href='{% static 'css/usa-styles.css' %}'/>
+		{% block extra_css %}{% endblock%}
+    {% block header_script %}{% endblock%}
+  </head>
+
+<body class="{% block body_class %}contentpage{% endblock %}">
+  <div id="wrapper">
+    {% wagtailuserbar %}
+	<!-- Navigation -->
+  {% block nav-bar %}
+    {% include 'home/partials/menubar.html' with navbarbg='navbar-bg' page=page %}
+  {% endblock %}
+
+    {% block fullcontent %}
+
+    {% block banner %}
+    <section>
+      <div class="container white-bg">
+  				<div class="columns">
+  					<div class="column is-full" id="title-container">
+              <div id="title-wrapper">
+    						<h1 class="page-title">
+                <span class="title-spots">
+                  <i class="fas fa-square red"></i>
+                  <i class="fas fa-square blue-spot"></i>
+                  <i class="fas fa-square green"></i>
+                </span>
+                  {% block title %}{% endblock %}
+                </h1>
+              </div>
+  					</div>
+  				</div>
+        </div>
+  	</section>
+    {% endblock %}
+
+	<section class="section maincontent">
+    <div class="container white-bg ">
+    {% block breadcrumb_menu_outer %}
+    {% endblock %}
+
+    {% if messages %}
+      <div class="columns">
+        <div class="column is-full messages ">
+        {% for message in messages %}
+        <div class="alert alert-dismissable alert-{{ message.tags }}" data-alert="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ message }}
+        </div>
+        {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+			{% block mainfull %}{% endblock %}
+			<div class="columns">
+				<div class="column {% block main_span_size %}is-full{% endblock %}">
+					{% block main %}{% endblock %}
+				</div>
+				{% block right_panel %}{% endblock %}
+			</div>
+    </div>
+	</section>
+
+  {% endblock%}
+
+  {% block content-footer %}
+  {% endblock %}
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="has-text-centered">
+        <ul>
+          <li><a href="/observatory/privacy-policy/" class="black is-size-6">Privacy Policy</a></li>
+          <li><a href="/about/diversity/" class="black is-size-6">Diversity &amp; Inclusion</a></li>
+          <li><a href="/about/careers/" class="black is-size-6">Careers</a></li>
+          <li><a href="/about/contact/" class="black is-size-6">Contact</a></li>
+        </ul>
+      </div>
+      <div class="copyright has-text-centered  is-size-7">Copyright &copy; Las Cumbres Observatory. All rights reserved.</div>
+  </div>
+  </footer>
+  {% block script-footer %}
+  {% endblock %}
+		<script>
+
+    $(".navbar-item.has-dropdown").click(function(e) {
+          if ($(".navbar-burger").is(':visible')) {
+            $(this).toggleClass("is-active");
+          }
+      });
+      $(".navbar-item > .navbar-link").click(function(e) {
+          if ($(".navbar-burger").is(':visible')) {
+            e.preventDefault();
+          }
+      });
+      $(window).resize(function(e) {
+        if (!$(".navbar-burger").is(':visible') && $(".navbar-item.has-dropdown.is-active").length) {
+          $(".navbar-item.has-dropdown.is-active").removeClass('is-active');
+        }
+      });
+
+    function togglehideshow(elid) {
+          var div = document.getElementById(elid);
+          if (div.style.display !== 'none') {
+              div.style.display = 'none';
+          }
+          else {
+              div.style.display = 'block';
+          }
+      };
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-2087713-1', 'auto');
+		  ga('send', 'pageview');
+
+		</script>
+
+  </body>
+</html>
