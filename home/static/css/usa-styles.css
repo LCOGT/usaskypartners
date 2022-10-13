@@ -7,3 +7,54 @@
 nav.navbar.top-navbar.navbar.is-dark {
   background-color: #0B3053;
 }
+
+.hero-body h2 {
+  color:black;
+}
+
+.affiliation {
+  font-weight: bold;
+}
+
+.logos {
+  max-height:100px;
+  width:auto !important;
+}
+
+.highlights{
+  font-family: 'Heebo', sans-serif;
+}
+
+.highlight-item {
+  padding-bottom:20px;
+  margin:10px;
+}
+
+.highlight-item p.name {
+  padding: 0 10px;
+  margin-bottom:0;
+}
+
+.highlight-item p {
+  padding: 10px;
+  font-size:90%;
+}
+
+.highlight-item .caption {
+  font-size:85%;
+}
+
+.highlight-list-box,
+.listing-box {
+  margin-bottom:40px;
+}
+
+.listing-box {
+  padding-left:20px;
+}
+
+.highlight-title {
+  font-weight:bold;
+  font-size: 1.25em;
+  margin-bottom: 0.8em;
+}

@@ -1,0 +1,71 @@
+{% extends "base_page.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags i18n %}
+
+{% block meta_description %}
+{% if not page.teaser %}
+{{page.content|striptags|truncatechars:"300"}}
+{% else %}
+{{page.teaser}}
+{% endif %}
+{% endblock %}
+
+{% block unfurl %}
+<meta property="og:url" content="{{ page.get_site.root_url }}{% pageurl page %}" />
+<meta property="og:title" content="{{page.title}}" />
+{% if page.teaser %}
+<meta property="og:description" content="{{page.teaser|striptags}}" />
+{% else %}
+<meta property="og:description" content="{{page.content|striptags|truncatechars:"200"}}" />
+{% endif%}
+{% if page.featured_image %}
+{% image_url page.featured_image "width-400" as image_tmp_url %}
+<meta name="og:image" content="{{ page.get_site.root_url }}{{image_tmp_url}}"/>
+<meta name="twitter:image" content="{{ page.get_site.root_url }}{{image_tmp_url}}"/>
+{% endif %}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@LCO_global" />
+<meta name="twitter:label1" value="Published" />
+<meta name="twitter:data1" value="{{page.display_date|date:"M j, Y"}}" />
+{% endblock %}
+
+{% block body_class %}contentpage{% endblock %}
+
+{% block main_span_size %}is-three-quarters{% endblock %}
+
+{% block title %}{% translate 'News' %}{% endblock%}
+
+{% block mainfull %}<h2>{{ page.title }}</h2>{% endblock %}
+
+{% block main %}
+      <p><small><strong><i class="fal fa-newspaper"></i> {{ page.display_date|date:"M j, Y" }}</strong></small></p>
+      {% if page.featured_image %}
+      {% image page.featured_image width-1000 as tmp_photo %}
+      <figure class="image">
+        <img {{ tmp_photo.attrs }} />
+        <figcaption class='featured'>{{tmp_photo.alt}}</figcaption>
+      </figure>
+      {% endif %}
+
+      <!-- Stream field rendering -->
+      {% include 'home/partials/stream_blocks.html' with blocks=self.content %}
+
+    <p><small><a href="{% slugurl 'news' %}"  class="black"><i class="fas fa-chevron-left"></i> {% translate "Full News List" %}</a></small></p>
+
+{% endblock %}
+
+
+{% block right_panel %}
+
+<div class="column">
+  {% with page.owner as person %}
+      {% image person.mugshot width-400 as tmp_photo %}
+      <figure class="image is-1by1">
+      <img typeof="foaf:Image" src="{{ tmp_photo.url }}" alt="{{person.first_name}}&#039;s picture" title="{{person.first_name}}&#039;s picture" class="is-rounded center-block" />
+      </figure>
+  	  <div class="has-text-centered"><strong>{{ person.get_full_name }}</strong></div>
+      {% endwith %}
+  		<hr class="gold-bg">
+      <h4 class="has-text-centered">{% translate "Recent News" %}</h4>
+
+{% endblock %}

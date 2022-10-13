@@ -2,21 +2,25 @@
 
   <nav class="{{navbarbg}}">
     <div class="container">
+      <div class="level">
     <div class="level-left">
       <div class="level-item">
         <a href="https://lco.global">
           <img src="https://cdn.lco.global/mainstyle/img/lco-logo-web.png" alt="LCO logo" />
         </a>
       </div>
-      <div class="level-item">
-        <h1>{% translate "USA Sky Partners"%}</h1>
+    </div>
+    <div class="level-right">
+      <div class="level-item has-text-centered">
+        <span class="title white">{% translate "USA Sky Partners"%}</span>
       </div>
+    </div>
     </div>
     </div>
   </nav>
 
 
-<nav class="navbar top-navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar top-navbar {{navbarbg}}" role="navigation" aria-label="main navigation">
   <div class="container">
 
     <a role="button"
@@ -35,7 +39,7 @@
           <a class="navbar-item" href="/about/">
             {% translate "About" %}
           </a>
-          <a class="navbar-item" href="">
+          <a class="navbar-item" href="/news/">
             {% translate "News" %}
           </a>
           <a class="navbar-item" href="">

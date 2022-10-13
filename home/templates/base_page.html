@@ -10,7 +10,7 @@
             {{ self.title }}
         {% endblock %}
         {% block title_suffix %}
-            | USA Sky Partners
+            | {% translate "USA Sky Partners" %}
         {% endblock %}
     </title>
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,11 +43,11 @@
     {% endblock %}
 
     <link rel="shortcut icon" href="https://cdn.lco.global/mainstyle/img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <script defer src="https://pro.fontawesome.com/releases/v5.13.0/js/all.js" integrity="sha384-Z0e6PSokCQP510gixgZGPs+obVv8eogS/eS2+/7lLSMOfmLnWBgPQppPispQXGUM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js" integrity="sha512-ju6u+4bPX50JQmgU97YOGAXmRMrD9as4LE05PdC3qycsGQmjGlfm041azyB1VfCXpkpt1i9gqXCT6XuxhBJtKg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@700&family=Libre+Franklin:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href='https://cdn.lco.global/mainstyle/css/lco-2.0.3.css'/>
+    <link rel="stylesheet" href='https://cdn.lco.global/mainstyle/css/lco-2.0.4.css'/>
     <link rel="stylesheet" href='{% static 'css/usa-styles.css' %}'/>
 		{% block extra_css %}{% endblock%}
     {% block header_script %}{% endblock%}

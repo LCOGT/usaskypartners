@@ -2,4 +2,102 @@
 {% load static wagtailcore_tags wagtailimages_tags wagtailuserbar i18n %}
 
 {% block fullcontent %}
+
+<section class="hero">
+  <div class="container">
+  <div class="columns">
+    <div class="column is-half">
+      <div class="hero-body">
+        <h1>
+          {% translate "USA Sky Partners" %}
+        </h1>
+      </div>
+    </div>
+    <div class="column">
+      <figure class="image">
+        <img src="{% static 'img/astro-telescope-3pic-white.png'%}"
+      </figure>
+    </div>
+    </div>
+    <div class="content">
+      {{page.tagline|richtext}}
+    </div>
+</section>
+
+<section class="hero is-small blue-bg-op-fifth">
+  <div class="hero-body container">
+  {{page.about|richtext}}
+  </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {% include 'home/partials/stream_blocks.html' with blocks=page.content %}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="blue-name is-uppercase blue-bg-op-fifth highlight-title py-2 px-2 mb-4">
+        {% translate "Collaborators" %}
+      </div>
+    </div>
+    <div class="container">
+      <div class="columns">
+        <div class="column is-one-quarter">
+          <figure class="image">
+            <img class="logos" src="{% static 'img/instar_logo.jpg' %}" />
+          </figure>
+          <div class="affiliation">
+            InStar
+          </div>
+          <div class="name">
+            Rachel Freed
+          </div>
+        </div>
+        <div class="column is-one-quarter">
+          <figure class="image">
+            <img class="logos" src="{% static 'img/LCO_logo_Color_Stacked.jpg' %}" />
+          </figure>
+          <div class="affiliation">
+            {% translate "Las Cumbres Observatory" %}
+          </div>
+          <div class="name">
+            Lisa Storrie-Lombardi,<br/>
+            Edward Gomez, <br/>
+            Alice Hopkinson
+          </div>
+        </div>
+        <div class="column is-one-quarter">
+          <figure class="image">
+            <img class="logos" src="{% static 'img/occidental-logo.png' %}" />
+          </figure>
+          <div class="affiliation">
+            Occidental College
+          </div>
+          <div class="name">
+            Sabrina Stierwalt
+          </div>
+        </div>
+        <div class="column is-one-quarter">
+          <figure class="image">
+            <img class="logos" src="{% static 'img/logo-uprrp.png' %}" />
+          </figure>
+          <div class="affiliation">
+            {% translate "University of Puerto Rico, Río Piedras" %}
+          </div>
+          <div class="name">
+            Mayra Lebron Santos,<br/>
+            Carmen A. Pantoja
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 {% endblock %}

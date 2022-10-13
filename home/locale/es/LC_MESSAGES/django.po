@@ -1,0 +1,57 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-13 13:41+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: home/templates/base_page.html:13 home/templates/home/home_page.html:12
+#: home/templates/home/partials/menubar.html:15
+msgid "USA Sky Partners"
+msgstr "Compañeros del Cielo de Estados Unidos"
+
+#: home/templates/home/home_page.html:47
+msgid "Collaborators"
+msgstr "Colaboradores"
+
+#: home/templates/home/home_page.html:68
+msgid "Las Cumbres Observatory"
+msgstr "Observatorio Las Cumbres"
+
+#: home/templates/home/home_page.html:92
+msgid "University of Puerto Rico, Río Piedras"
+msgstr "Universidad de Puerto Rico, Río Piedras"
+
+#: home/templates/home/news_page.html:36
+#: home/templates/home/partials/menubar.html:43
+msgid "News"
+msgstr "Noticias"
+
+#: home/templates/home/news_page.html:53
+msgid "Full News List"
+msgstr "Lista Completa de Noticias"
+
+#: home/templates/home/news_page.html:69
+msgid "Recent News"
+msgstr "Noticias Recientes"
+
+#: home/templates/home/partials/menubar.html:40
+msgid "About"
+msgstr "Sobre"
+
+#: home/templates/home/partials/menubar.html:46
+msgid "Contact"
+msgstr "Contacto"
