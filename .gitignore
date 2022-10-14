@@ -1,5 +1,8 @@
 db.sqlite3
 .dockerignore
+docker-compose.yml
+.env-local
+*.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

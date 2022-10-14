@@ -96,6 +96,13 @@ class NewsPage(Page):
         else:
             return stream_teaser(self.content, self.title)
 
+    def get_context(self, request):
+        # Update context to include only published posts, ordered by reverse-chron
+        context = super().get_context(request)
+        blog_list = NewsPage.objects.filter(locale=Locale.get_active()).live().order_by('-go_live_at')
+        context['blogpages'] = blog_list
+        return context
+
 
 class NewsIndexPage(Page):
     description = RichTextField(blank=True)
