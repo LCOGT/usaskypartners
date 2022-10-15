@@ -1,2 +1,2 @@
 // LCO Jenkins automated docker container build
-helmPipeline()
+dockerPipeline("docker.lco.global/usaskypartners")
