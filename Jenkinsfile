@@ -1,1 +1,1 @@
-helmPipeline()
+dockerPipeline("docker.lco.global/usaskypartners")
