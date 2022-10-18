@@ -3,6 +3,7 @@ db.sqlite3
 docker-compose.yml
 .env-local
 *.json
+dev.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
