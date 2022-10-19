@@ -36,15 +36,12 @@
 
   <div id="websitenavbar" class="navbar-menu">
       <div class="navbar-start">
-          <a class="navbar-item" href="/about/">
-            {% translate "About" %}
-          </a>
-          <a class="navbar-item" href="/news/">
-            {% translate "News" %}
-          </a>
-          <a class="navbar-item" href="">
-            {% translate "Contact" %}
-          </a>
+        {% for menu in menuitems %}
+        <a class="navbar-item" href="{% pageurl menu %}">
+          {{menu.title}}
+        </a>
+        {% endfor %}
+
     </div>
     <div class="navbar-end">
           {% if page %}

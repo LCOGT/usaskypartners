@@ -1,5 +1,5 @@
 {% extends "base_page.html" %}
-{% load static wagtailcore_tags wagtailimages_tags %}
+{% load static wagtailcore_tags wagtailimages_tags i18n %}
 
 {% block meta_description %}{{page.teaser|striptags}}{% endblock %}
 
@@ -20,6 +20,10 @@ is-three-quarters
 {% endblock %}
 
 {% block main %}
+
+{% if self.alias_of %}
+  <p class="notification is-warning">{% translate "No translation available. Showing original language version."%}</p>
+{% endif %}
 
 <!-- Stream field rendering -->
 {% include 'home/partials/stream_blocks.html' with blocks=self.content %}

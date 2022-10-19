@@ -1,6 +1,6 @@
 {% extends "base_page.html" %}
 
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags wagtailimages_tags i18n %}
 
 {% block body_class %}{% endblock %}
 
@@ -30,7 +30,10 @@
         {% endif %}
       <div class="column">
         <div class="content px-4">
-          <div class="highlight-title is-v-paddingless"><a href="{{highlight.specific.url}}" class="black">{{highlight.specific.title}}</a></div>
+          <div class="highlight-title is-v-paddingless">
+            <a href="{{highlight.specific.url}}" class="black">{{highlight.specific.title}}</a>
+            {% if highlight.alias_of %}<span class="tag is-light">{% translate highlight.alias_of.locale.get_display_name %}</span>{% endif %}
+          </div>
           <div>
           <small>
             <strong>{{highlight.specific.display_date|date:"d M Y"}}</strong></small></div>

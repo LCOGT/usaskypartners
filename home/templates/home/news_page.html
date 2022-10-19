@@ -38,7 +38,14 @@
 {% block mainfull %}<h2>{{ page.title }}</h2>{% endblock %}
 
 {% block main %}
-      <p><small><strong><i class="fal fa-newspaper"></i> {{ page.display_date|date:"M j, Y" }}</strong></small></p>
+
+      <p>
+        <strong>{% translate 'by' %} {%if page.owner.get_full_name%}{{page.owner.get_full_name}}{% else %}{{page.owner.username}}{% endif %}</strong><br/>
+        <small><strong><i class="fal fa-newspaper"></i> {{ page.display_date|date:"M j, Y" }}</strong> </small></p>
+      {% if self.alias_of %}
+        <p class="notification is-warning">{% translate "No translation is available. Showing original language version."%}</p>
+      {% endif %}
+
       {% if page.featured_image %}
       {% image page.featured_image width-1000 as tmp_photo %}
       <figure class="image">
@@ -58,14 +65,11 @@
 {% block right_panel %}
 
 <div class="column">
-  {% with page.owner as person %}
-      {% image person.mugshot width-400 as tmp_photo %}
-      <figure class="image is-1by1">
-      <img typeof="foaf:Image" src="{{ tmp_photo.url }}" alt="{{person.first_name}}&#039;s picture" title="{{person.first_name}}&#039;s picture" class="is-rounded center-block" />
-      </figure>
-  	  <div class="has-text-centered"><strong>{{ person.get_full_name }}</strong></div>
-      {% endwith %}
-  		<hr class="gold-bg">
       <h4 class="has-text-centered">{% translate "Recent News" %}</h4>
+      {% for news in newspages %}
+      <p><span class="title is-4"><a href="{% pageurl news %}">{{news.title}}</a></span><br/>
+      <span class="subtitle is-7">{{ news.display_date|date:"M j, Y" }}</span></p>
+      <hr />
+      {% endfor %}
 
 {% endblock %}

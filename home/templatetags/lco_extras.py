@@ -9,6 +9,7 @@ from django.utils.safestring import mark_safe
 from random import choice
 from wagtail.rich_text import expand_db_html
 from wagtail.images.models import Image
+from wagtail.models import Locale
 
 import logging
 import os

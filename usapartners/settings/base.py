@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.utils.translation import gettext_lazy as _
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
@@ -77,6 +78,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "home.context_processors.menuitems"
             ],
         },
     },
@@ -175,12 +177,12 @@ WAGTAILSEARCH_BACKENDS = {
 
 LANGUAGE_CODE = 'en'
 WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [
-    ('en', "English"),
-    ('es', "Spanish"),
+    ('en', _("English")),
+    ('es', _("Spanish")),
 ]
 
-LOCALE_PATHS = [ os.path.join(PROJECT_DIR, 'locale'),
-                os.path.join(PROJECT_DIR, 'home/locale')]
+LOCALE_PATHS = [ os.path.join(BASE_DIR, 'locale'),
+                os.path.join(BASE_DIR, 'home/locale')]
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash

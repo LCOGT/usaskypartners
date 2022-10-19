@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-13 13:41+0000\n"
+"POT-Creation-Date: 2022-10-19 14:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,6 +23,11 @@ msgstr ""
 msgid "USA Sky Partners"
 msgstr "Compañeros del Cielo de Estados Unidos"
 
+#: home/templates/home/content_page.html:25
+#: home/templates/home/news_page.html:46
+msgid "No translation is available. Showing original language version."
+msgstr "No hay traducción disponible. Mostrando la versión en el idioma original."
+
 #: home/templates/home/home_page.html:47
 msgid "Collaborators"
 msgstr "Colaboradores"
@@ -36,22 +41,26 @@ msgid "University of Puerto Rico, Río Piedras"
 msgstr "Universidad de Puerto Rico, Río Piedras"
 
 #: home/templates/home/news_page.html:36
-#: home/templates/home/partials/menubar.html:43
 msgid "News"
 msgstr "Noticias"
 
-#: home/templates/home/news_page.html:53
+#: home/templates/home/news_page.html:43
+msgid "by"
+msgstr "por"
+
+#: home/templates/home/news_page.html:60
 msgid "Full News List"
 msgstr "Lista Completa de Noticias"
 
-#: home/templates/home/news_page.html:69
+#: home/templates/home/news_page.html:68
 msgid "Recent News"
 msgstr "Noticias Recientes"
 
-#: home/templates/home/partials/menubar.html:40
-msgid "About"
-msgstr "Sobre"
+#~ msgid "Home"
+#~ msgstr "Inicio"
 
-#: home/templates/home/partials/menubar.html:46
-msgid "Contact"
-msgstr "Contacto"
+#~ msgid "About"
+#~ msgstr "Sobre"
+
+#~ msgid "Contact"
+#~ msgstr "Contacto"

@@ -100,7 +100,7 @@ class NewsPage(Page):
         # Update context to include only published posts, ordered by reverse-chron
         context = super().get_context(request)
         blog_list = NewsPage.objects.filter(locale=Locale.get_active()).live().order_by('-go_live_at')
-        context['blogpages'] = blog_list
+        context['newspages'] = blog_list
         return context
 
 
