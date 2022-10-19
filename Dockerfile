@@ -13,6 +13,7 @@ RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-r
     libjpeg62-turbo-dev \
     zlib1g-dev \
     libwebp-dev \
+    gettext \
  && python3 -m pip install -r requirements.txt \
  && rm -rf /var/lib/apt/lists/*
 
