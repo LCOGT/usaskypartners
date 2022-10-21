@@ -181,7 +181,7 @@ WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [
     ('es', _("Spanish")),
 ]
 
-LOCALE_PATHS = [ os.path.join(BASE_DIR, 'locale')]
+LOCALE_PATHS = [ os.environ.get('LOCALE_PATH',''),]
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
