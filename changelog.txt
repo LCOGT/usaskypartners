@@ -1,5 +1,8 @@
 # Change log
 
+## Version 0.0.3
+- Fix bug when no news on homepage
+
 ## Version 0.0.1
 
 - Initial release
