@@ -136,5 +136,5 @@ class HomePage(Page):
     def get_context(self, request):
         # Update context to include only published posts, ordered by reverse-chron
         context = super().get_context(request)
-        context['news'] = NewsPage.objects.live().order_by('-go_live_at')[2]
+        context['news'] = NewsPage.objects.live().order_by('-go_live_at')[:2]
         return context
